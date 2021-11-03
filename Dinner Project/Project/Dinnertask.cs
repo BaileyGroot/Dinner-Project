@@ -9,13 +9,17 @@ namespace Dinner_Project.Project
 {
     class Dining_Task
     {
+        // Randomize
         Random random = new Random();
+        // The forks are generated.
         private static bool[] fork = new bool[5];
 
+        // Properties
         public string Name { get; private set; }
         public int Rightfork { get; private set; }
         public int Leftfork { get; private set; }
 
+        // Constructor
         public Dining_Task(string name, int rightfork, int leftfork)
         {
             Name = name;
@@ -23,7 +27,7 @@ namespace Dinner_Project.Project
             Leftfork = leftfork;
         }
 
-
+        // Program that runs the method Eat and Think endless.
         void RunProgram()
         {
             while (true)
@@ -33,6 +37,7 @@ namespace Dinner_Project.Project
             }
         }
 
+        // Method that checking if our rightfork and leftfork is false - If yes then it is eat if not then it move on to think.
         void Eat()
         {
             bool ItsEating = false;
@@ -59,6 +64,7 @@ namespace Dinner_Project.Project
             Console.WriteLine(Name + " thinking.");
             Think();
         }
+        // Thinking for x seconds.
         void Think()
         {
             Thread.Sleep(2000 + random.Next(8000));
@@ -66,12 +72,14 @@ namespace Dinner_Project.Project
 
         public static void RunDining()
         {
+
+            // Users
             Dining_Task u1 = new Dining_Task("Per", 0, 1);
             Dining_Task u2 = new Dining_Task("Marc", 1, 2);
             Dining_Task u3 = new Dining_Task("Kenneth", 2, 3);
             Dining_Task u4 = new Dining_Task("Louise", 3, 4);
             Dining_Task u5 = new Dining_Task("Simon", 4, 0);
-
+            // Threads
             Thread t1 = new Thread(u1.RunProgram);
             t1.Start();
             Thread t2 = new Thread(u2.RunProgram);
