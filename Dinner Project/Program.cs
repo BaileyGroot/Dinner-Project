@@ -7,7 +7,8 @@ namespace Dinner_Project
     {
         static void Main(string[] args)
         {
-            Dining_Task.RunDining();
+            // Dining_Task.RunDining();
+            po.mainrun();
         }
     }
 }
